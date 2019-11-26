@@ -1,5 +1,7 @@
 Allison Chiang
+
 Final Project
+
 CSC436 Web Applications Fall 2019
 
 Firebase Hosting
