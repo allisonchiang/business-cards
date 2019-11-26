@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg py-4 navbar-light bg-light border-bottom">
+
+    <div class="container">
+        <a class="navbar-brand" href=".">Business Cards</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavBar" aria-controls="primaryNavBar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="primaryNavBar" *ngIf="authService.isLoggedIn()">
+        <!-- <div class="collapse navbar-collapse" id="primaryNavBar"> -->
+            <!-- <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['../dashboard']">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+            </ul> -->
+            <form class="shadow ml-5 form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+            <!-- <form class="form-inline ml-lg-4 my-2 my-lg-0" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)"> -->
+                    <div class="input-group w-200">
+                        <input type="text" class="form-control" placeholder="Try typing a name..." aria-label="Search" aria-describedby="button-search" [formControl]="searchForm.controls['search']" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-search" title="Search">Go</button>
+                        </div>
+                    </div>
+                </form>
+            <a class="ml-5 btn btn-secondary" [routerLink]="['../camera']">New Business Card</a>
+            
+        </div>
+        <a class="float-right btn btn-outline-secondary" *ngIf="authService.isLoggedIn()" href (click)="logout()">Log out</a>
+
+        <!-- <a class="float-right btn btn-outline-secondary" href (click)="logout()">Log out</a> -->
+    </div>
+</nav>

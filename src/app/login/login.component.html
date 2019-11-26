@@ -1,0 +1,20 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="mt-5 d-flex flex-column flex-wrap align-items-center justify-content-center" *ngIf="!authService.loginStatus">
+  <p class="mt-5 text-center font-weight-light">Welcome to Business Cards.<br>Please log in.</p>
+  <form class="form-signin mb-5" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <div class="form-label-group mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email" [formControl]="loginForm.controls['email']" required>
+    </div>
+    <div class="form-label-group mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password" [formControl]="loginForm.controls['password']" required>
+    </div>
+
+    <div class="col text-center">
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log in</button>
+    </div>
+
+    <!-- <button type="button" class="btn btn-link" (click)="onCancel()">Cancel</button> -->
+
+  </form>
+</div>

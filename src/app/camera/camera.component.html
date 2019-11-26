@@ -1,0 +1,20 @@
+<app-nav-bar></app-nav-bar>
+<div class="container pt-4">
+<h1 class="h3 mb-3">Capture a new business card.</h1>
+<p class="mb-4">Take a photo of your business card using the webcam.</p>
+
+<button class="btn btn-primary mb-3" *ngIf="!showImage" (click)="takeSnapshot();">📷 Take Photo</button>
+<button class="btn btn-success mb-3" *ngIf="showImage" (click)="save();">✔️ Use this photo</button>
+<button class="btn btn-primary mb-3 ml-3" *ngIf="showImage" (click)="toggleWebcam();">📷 Retake Photo</button>
+<br>
+<webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+[allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+[videoOptions]="videoOptions"
+[imageQuality]="1"
+(cameraSwitched)="cameraWasSwitched($event)"
+(initError)="handleInitError($event)"
+></webcam>
+
+<div class="snapshot" *ngIf="showImage">  
+    <img [src]="imageUrl" width="500" />
+</div>

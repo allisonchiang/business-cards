@@ -1,0 +1,56 @@
+<div class="card shadow-sm">
+    <img src="assets/img/header_small.png" class="card-img-top">
+    <div class="card-body">
+        <div class="card-img-overlay">
+            <h5 class="card-title">{{card.fname }} {{card.lname}}</h5>
+        </div>
+        <p class="card-text mb-1">
+            <small class="text-primary">Company</small><br>
+            {{ card.company }}
+        </p>
+        <p class="card-text mb-1">
+            <small class="text-primary">Email</small><br>
+            {{ card.email }}
+        </p>
+        <p class="card-text mb-3">
+            <small class="text-primary">Phone</small><br>
+            {{ card.phone }}
+        </p>
+        <!-- <p class="card-text mb-3">
+            <small class="text-primary">Website</small><br>
+            {{ card.website }}
+        </p> -->
+        <a class="btn btn-outline-primary" [routerLink]="['../update', card.id]">Edit</a>
+        <a class="float-right btn btn-outline-danger"(click)="deleteCard()">Delete</a>
+    </div>
+</div>
+
+
+<!-- <div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">👥 {{card.fname }} {{card.lname}}</h5>
+        <p class="card-text mb-1" *ngIf="card.company.length">
+            <small class="text-muted">Company</small><br>
+            {{ card.company }}
+        </p>
+        <p class="card-text mb-1" *ngIf="card.email.length">
+            <span><small class="text-muted">Email</small><br>
+                {{ card.email }}</span>
+        </p>
+        <p class="card-text mb-1" *ngIf="card.phone.length">
+            <small class="text-muted">Phone</small><br>
+            {{ card.phone }}
+        </p>
+        <p class="card-text mb-1" *ngIf="card.website.length">
+            <small class="text-muted">Website</small><br>
+            {{ card.website }}
+        </p>
+        
+    </div>
+    <div class="card-footer">
+        <p class="mb-1">
+            <a class="btn btn-secondary" [routerLink]="['../update', card.id]">Edit</a>
+            <a class="float-right btn btn-outline-danger"(click)="deleteCard()">Delete</a>
+        </p>
+    </div>
+</div> -->

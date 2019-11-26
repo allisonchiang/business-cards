@@ -1,0 +1,43 @@
+<app-nav-bar></app-nav-bar>
+<div class="container pt-4" *ngIf="card">
+   <h1 class="h3 mb-3">Edit</h1>
+   <p class="mb-4">Please make changes and click <strong>Save</strong> when done.</p>
+   <form class="mt-3" [formGroup]="editBusinessCardForm" (ngSubmit)="onSubmit(editBusinessCardForm.value)">
+   <div class="form-row mb-2">
+      <div class="col-3">
+         <label for="firstName"><small>First Name</small></label>
+         <input type="text" class="form-control" id="firstName" placeholder="First Name" [formControl]="editBusinessCardForm.controls['firstName']" required>
+      </div>
+      <div class="col-3">
+         <label for="lastName"><small>Last Name</small></label>
+         <input type="text" class="form-control" id="lastName" placeholder="Last Name" [formControl]="editBusinessCardForm.controls['lastName']" required>
+      </div>
+   </div>
+   <div class="form-row mb-2">
+      <div class="col-4">
+         <label for="company"><small>Company Name</small></label>
+         <input type="text" class="form-control" id="company" placeholder="Company Name" [formControl]="editBusinessCardForm.controls['company']">
+      </div>
+   </div>
+   <div class="form-row mb-2">
+      <div class="col-4">
+         <label for="email"><small>Email</small></label>
+         <input type="email" class="form-control" id="email" placeholder="Email" [formControl]="editBusinessCardForm.controls['email']">
+      </div>
+   </div>
+   <div class="form-row mb-2">
+      <div class="col-4">
+         <label for="phone"><small>Phone</small></label>
+         <input type="text" class="form-control" id="phone" placeholder="Phone" [formControl]="editBusinessCardForm.controls['phone']">
+      </div>
+   </div>
+   <div class="form-row mb-2">
+      <div class="col-4">
+         <label for="website"><small>Website</small></label>
+         <input type="text" class="form-control" id="website" placeholder="Website" [formControl]="editBusinessCardForm.controls['website']">
+      </div>
+   </div>
+   <button type="submit" class="btn btn-primary mt-2" [disabled]="!editBusinessCardForm.valid">Save</button>
+   <!-- <button type="button" class="btn btn-link" (click)="onCancel()">Cancel</button> -->
+   </form>
+</div>
